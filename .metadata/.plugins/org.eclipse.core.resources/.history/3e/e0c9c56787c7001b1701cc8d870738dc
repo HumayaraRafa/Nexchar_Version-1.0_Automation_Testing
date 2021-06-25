@@ -1,0 +1,51 @@
+package Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class HomePage {
+	public static void main(String[] args) {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://nexchar.com/");
+Thread.sleep(3000);
+		
+		
+		/* //Page title capture
+			System.out.println("Title of the page:  "+driver.getTitle());
+		
+			//current url capture
+			System.out.println("Current url of the page: "+driver.getCurrentUrl());
+		
+			//Capturing page source code
+			System.out.println("Page source code: "+driver.getPageSource());*/
+		
+			//for windows maximize
+		/*driver.manage().window().maximize();
+		
+		//3 sec delay
+		Thread.sleep(3000);
+		//for windows minimize
+		
+		driver.manage().window().minimize(); */
+		
+		//Navigate
+		driver.navigate().to("https://daraz.com.bd/");
+		
+		//BackNavigate
+		driver.navigate().back();
+		
+		//ForwardNavigate
+		driver.navigate().forward();
+		
+		Thread.sleep(3000);
+		
+		//Page Refresh
+		driver.navigate().refresh();
+		
+		 
+	}
+
+} 

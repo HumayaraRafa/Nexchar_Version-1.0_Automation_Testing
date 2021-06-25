@@ -1,0 +1,53 @@
+package Dashboard;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+	
+public class Dashboard_PurchasePage {
+public static void main(String[] args) throws InterruptedException {
+			
+		WebDriverManager.firefoxdriver().setup();
+		WebDriver driver= new FirefoxDriver();
+			
+		//URL visit
+		driver.get("https://nexchar.com/signin");
+		
+		/* //Page title capture
+				System.out.println("Title of the page:  "+driver.getTitle());
+		        //current URL capture
+				System.out.println("Current URL of the page: "+driver.getCurrentUrl());
+		        //Capturing page source code
+				System.out.println("Page source code: "+driver.getPageSource()); */
+				
+				//Sign In with all valid info		
+			    Dashboard_HomePage_Weblocator.emailaddress(driver).sendKeys("drug_store");
+				//Dashboard_HomePage_Weblocator.emailaddress(driver).sendKeys("gift_shop");
+				Dashboard_HomePage_Weblocator.password(driver).sendKeys("12345");
+				Dashboard_HomePage_Weblocator.rememberme(driver).click();
+				Dashboard_HomePage_Weblocator.signin(driver).click();
+				//click purchase
+				driver.findElement(By.linkText("Purchase")).click();
+				//add new purchase
+				driver.findElement(By.linkText("New Purchase")).click();
+				//Dashboard_Purchase_Weblocator.itemname(driver).sendKeys("aaaa");
+				/*Dashboard_Purchase_Weblocator.date(driver).click();
+				driver.findElement(By.xpath("//input[@id='Date']")).click(); */
+				
+				//dropdown outlet
+				WebElement dropdown =driver.findElement(By.id("OutletId"));
+				dropdown.findElement(By.xpath("//option[@value='08d8e9d6-1105-4a4a-8bf9-47390ae0d876']")).click();
+				Dashboard_Purchase_Weblocator.supplierName(driver).sendKeys("H")
+				Dashboard_Purchase_Weblocator.supplierName(driver).sendKeys(Keys.DOWN);
+				Dashboard_Purchase_Weblocator.supplierName(driver).sendKeys(Keys.ENTER);
+				
+                //payment method dropdown1
+			    WebElement dropdown1 = driver.findElement(By.id("PaymentMethod"));
+			    dropdown1.findElement(By.xpath("//option[. = 'Debit Card']")).click();
+			    driver.findElement(By.cssSelector("#PaymentMethod > option:nth-child(2)")).click();
+				
+}		
+
+}

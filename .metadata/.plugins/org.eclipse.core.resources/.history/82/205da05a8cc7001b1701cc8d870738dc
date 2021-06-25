@@ -1,0 +1,8 @@
+package Pages;
+
+public class PricingPage {
+	public static void main(String[] args) {
+		
+	}
+
+}

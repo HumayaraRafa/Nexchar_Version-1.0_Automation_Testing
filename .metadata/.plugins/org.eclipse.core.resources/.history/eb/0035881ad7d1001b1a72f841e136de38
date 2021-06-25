@@ -1,0 +1,32 @@
+package Dashboard;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Dashboard_Purchase_Weblocator {
+	
+private static WebElement element=null;
+	
+ public static WebElement itemname(WebDriver driver)
+{
+ element=driver.findElement(By.id("ItemName"));
+ return element;
+}
+ public static WebElement date(WebDriver driver)
+{
+ element=driver.findElement(By.xpath("//input[@id='Date']"));
+ return element;
+}
+ public static WebElement outlet(WebDriver driver)
+ {
+  element=driver.findElement(By.id("OutletId"));
+  return element;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+}
